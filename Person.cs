@@ -8,28 +8,34 @@ namespace OOP
 {
     public class Person
     {
-        string surname;
-        string status;
-        int age;
-        int salary;
-        string name;
-        int height;
-        public Person() { }
-        public Person(string Surname)
+        string surname; // поле фамилия
+        string status; // поле статус
+        int age; // поле возраст
+        int salary; // поле зарплата
+        string name; // поле имя
+        int height; // поле рост
+        Language emakeel;
+        public Person() { } // пустой конструктор
+        public Person(string Surname,Language emakeel)
         {
             surname = Surname;
+            this.emakeel = emakeel;
         }
-        public string Surname
+        public string Surname //свойство для поля фамилия
         {
-            set { if (surname == null) surname = value; }
-            get { return surname; }
+            set { if (surname == null) surname = value; } // код - установка значения поля фамилия
+            get { return surname; } // код - чтение значения поля фамилия
         }
-        public int Age
+        public int Age // свойство для поля возраста
         {
-            set
+            get { return age; } // код - чтение значения поля возраста
+            set { } // код - пустой для установки значения поля возраста
+        }
+        public string Status // свойство для поля статуса
+        {
+            get // код - чтение значения поля статус
             {
-                age = value;
-                if (age<7)
+                if (age < 7)
                 {
                     status = "Kids";
                 }
@@ -45,21 +51,17 @@ namespace OOP
                 {
                     status = "Adult";
                 }
+                return status;
             }
-            get { return age; }
         }
-        public string Status
+        public string Name // свойство для поля имени
         {
-            get { return status; }
+            set { if (name == null) name = value; } // код - установка значения поля имя
+            get { return name; } // код - чтение значения поля имя
         }
-        public string Name
+        public int Height // свойство для поля роста
         {
-            set { if (name == null) name = value; }
-            get { return name; }
-        }
-        public int Height
-        {
-            set
+            set // код - установка значения полей роста
             {
                 height = value;
                 if (height < 140)
@@ -75,27 +77,31 @@ namespace OOP
                     status = "Over height";
                 }
             }
-            get { return height; }
+            get { return height; } // код - чтение значения поля роста
         }
-        public int Salary
+        public int Salary // свойство для поля зарплаты
         {
-            set
+            set // // код - установка значения полей зарплаты
             {
                 salary = value;
                 if (salary < 600)
                 {
-                    status = "Small salary";
+                    status = "small salary";
                 }
                 else if (salary < 1200)
                 {
-                    status = "Medium salary";
+                    status = "medium salary";
                 }
                 else
                 {
                     status = "BIG SALARY";
                 }
             }
-            get { return salary; }
+            get { return salary; } // // код - чтение значения поля зарплата
+        }
+        public Language Emakeel
+        {
+            get { return emakeel; } // код - чтение значения поля emakeel
         }
         //public void Hello()
         //{
@@ -104,9 +110,24 @@ namespace OOP
         //}
         public void Bye()
         {
-            Console.WriteLine("My name is "+ name);
-            Console.WriteLine($"I'm {height} cm and my salary {salary}");
+            if(surname!=null && name != null)
+            {
+                Console.WriteLine($"Hello! My name is {name},{surname}");
+            }
+            else if (surname == null && name != null)
+            {
+                Console.WriteLine($"Hello! My surname is {surname}");
+            }
+            else if (name == null && name != null)
+            {
+                Console.WriteLine($"Hello! My name is {name}");
+            }
+            else
+            {
+                Console.WriteLine("Hello!");
+            }
+            Console.WriteLine($"My name is {name}");
+            Console.WriteLine($"I'm {height} cm and my salary {salary} and this {Status}");
         }
-
     }
 }

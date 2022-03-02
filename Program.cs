@@ -25,13 +25,34 @@ namespace OOP
                 Console.WriteLine("What's your surname?");
                 people[i].Surname = Console.ReadLine();
                 Console.WriteLine("How old are you?");
-                people[i].Age = int.Parse(Console.ReadLine());
+                try
+                {
+                    people[i].Age = int.Parse(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+
+                }
                 Console.WriteLine("What's your name?");
                 people[i].Name = Console.ReadLine();
                 Console.WriteLine("What's your height?");
-                people[i].Height = int.Parse(Console.ReadLine());
+                try
+                {
+                    people[i].Height = int.Parse(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+
+                }
                 Console.WriteLine("What's your salary?");
-                people[i].Salary = int.Parse(Console.ReadLine());
+                try
+                {
+                    people[i].Salary = int.Parse(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+
+                }
             }
             foreach (Person person in people)
             {
